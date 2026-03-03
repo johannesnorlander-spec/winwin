@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <title>WIN WIN KALDEREN AB</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 200vh; /* bara för att kunna scrolla – ta bort senare */
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       background: white;
       color: black;
       text-align: center;
@@ -25,28 +26,56 @@
     /* Sticker */
     .sticker {
       position: fixed;
-      top: 40px;
-      right: 40px;
-      width: 200px;        /* justera storlek här */
+      top: -40px;
+      right: -40px;
+      width: 180px;
       z-index: 1000;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .sticker.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sticker img {
+      width: 100%;
+      display: block;
     }
 
     @media (max-width: 600px) {
       .sticker {
-        width: 90px;       /* mindre på mobil */
-        top: 10px;
-        right: 10px;
+        width: 120px;
+        top: -25px;
+        right: -25px;
       }
     }
   </style>
 </head>
+
 <body>
 
-  <img src="sticker.gif" alt="Win Win Kalderen" class="sticker">
+  <a href="mailto:info@kalderen.se" class="sticker" id="sticker">
+    <img src="assets/sticker.gif" alt="Win Win Kalderen">
+  </a>
 
   <div>
     <h1>WIN WIN KALDEREN AB</h1>
   </div>
+
+  <script>
+    const sticker = document.getElementById("sticker");
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 200) {   // justera när den ska visas
+        sticker.classList.add("visible");
+      } else {
+        sticker.classList.remove("visible");
+      }
+    });
+  </script>
 
 </body>
 </html>
