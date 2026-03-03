@@ -20,6 +20,7 @@
     h1 {
       font-size: 3rem;
       letter-spacing: 0.1em;
+      line-height: 1.4;
     }
 
     /* Sticker */
@@ -27,15 +28,19 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      width: 140px;        /* justera storlek här */
+      width: 140px;
       z-index: 1000;
     }
 
     @media (max-width: 600px) {
       .sticker {
-        width: 90px;       /* mindre på mobil */
+        width: 90px;
         top: 10px;
         right: 10px;
+      }
+
+      h1 {
+        font-size: 2rem;
       }
     }
   </style>
@@ -45,7 +50,11 @@
   <img src="sticker.gif" alt="Win Win Kalderen" class="sticker">
 
   <div>
-    <h1>WIN WIN KALDEREN AB</h1>
+    <h1>
+      WIN WIN KALDEREN AB<br>
+      SKOGSTORPSVÄGEN 95<br>
+      191 39 SOLLENTUNA
+    </h1>
   </div>
 
 </body>
