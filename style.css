@@ -1,4 +1,4 @@
-/* Grundinställningar för hela sidan */
+/* --- GRUNDINSTÄLLNINGAR (hela sidan) --- */
 body {
   margin: 0;
   padding: 0;
@@ -7,42 +7,51 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f9e6ec;
-  color: #FFA6C9;
+  background-color: #f9e6ec; /* Bakgrundsfärg */
+  color: #FFA6C9;            /* Textfärg */
   text-align: center;
-  overflow-x: hidden; /* Förhindrar scroll i sidled om bilden är stor */
+  overflow-x: hidden;        /* Förhindrar scroll i sidled */
 }
 
-/* Textens utseende */
+/* --- TEXTENS UTSEENDE --- */
 h1 {
-  font-size: clamp(1.6rem, 1.2rem + 2vw, 2.2rem);
+  /* Skalar texten baserat på skärmbredd (clamp() är responsivt) */
+  font-size: clamp(1.4rem, 1rem + 1.5vw, 2.2rem); 
   letter-spacing: 0.05em;
-  line-height: 1.3;
+  line-height: 1.4;
   font-weight: 700;
   margin: 0;
-  padding: 20px;
+  padding: 40px; /* Mer luft runt texten */
 }
 
-/* Din sticker som flyter i hörnet */
+/* --- LOGGAN/STICKERN (Grundinställning för dator) --- */
 .sticker {
-  position: fixed;   /* Låser bilden vid skärmen */
+  position: fixed;   /* Låser bilden vid skärmen (flyter ovanpå) */
   top: 40px;         /* Avstånd från toppen */
   right: 40px;        /* Avstånd från höger */
-  width: 400px;      /* Storlek på dator */
+  width: 320px;      /* Justerad ner något för dator för bättre balans */
   height: auto;      /* Behåller proportioner */
-  z-index: 1000;     /* Lägger den ovanpå allt annat */
+  z-index: 1000;     /* Ser till att den ligger överst */
+  pointer-events: none; /* Gör att man kan klicka "igenom" bilden */
 }
 
-/* Anpassningar för mobilskärmar (max 600px breda) */
-@media (max-width: 600px) {
+/* ==========================================================
+   ### RESPONSIVA ANPASSNINGAR (Media Queries) ###
+   ========================================================== */
+
+/* 1. MOBIL I STÅENDE LÄGE (max 600px bredd) */
+@media (max-width: 600px) and (orientation: portrait) {
   .sticker {
-    width: 160px;    /* Mindre sticker på mobilen */
+    width: 140px; /* Liten sticker på stående mobil */
     top: 20px;
     right: 20px;
   }
 
   h1 {
-    font-size: 1.2rem; /* Lite större än din tidigare 1rem för läsbarhet */
+    font-size: 1.1rem; /* Lite mindre text på stående mobil */
     letter-spacing: 0.02em;
+    padding: 20px;
   }
 }
+
+/*
