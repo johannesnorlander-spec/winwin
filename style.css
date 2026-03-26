@@ -1,39 +1,48 @@
+/* Grundinställningar för hela sidan */
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: #f9e6ec;
+  min-height: 100vh;
+  background-color: #f9e6ec;
   color: #FFA6C9;
   text-align: center;
+  overflow-x: hidden; /* Förhindrar scroll i sidled om bilden är stor */
 }
 
+/* Textens utseende */
 h1 {
   font-size: clamp(1.6rem, 1.2rem + 2vw, 2.2rem);
   letter-spacing: 0.05em;
   line-height: 1.3;
   font-weight: 700;
-}}
-
-.sticker {
-  position: fixed;
-  top: 40px;
-  right: 40px;
-  width: 400px;
-  z-index: 1000;
+  margin: 0;
+  padding: 20px;
 }
 
+/* Din sticker som flyter i hörnet */
+.sticker {
+  position: fixed;   /* Låser bilden vid skärmen */
+  top: 40px;         /* Avstånd från toppen */
+  right: 40px;        /* Avstånd från höger */
+  width: 400px;      /* Storlek på dator */
+  height: auto;      /* Behåller proportioner */
+  z-index: 1000;     /* Lägger den ovanpå allt annat */
+}
+
+/* Anpassningar för mobilskärmar (max 600px breda) */
 @media (max-width: 600px) {
   .sticker {
-    width: 160px;
+    width: 160px;    /* Mindre sticker på mobilen */
     top: 20px;
     right: 20px;
   }
 
   h1 {
-    font-size: 1rem;
+    font-size: 1.2rem; /* Lite större än din tidigare 1rem för läsbarhet */
     letter-spacing: 0.02em;
   }
 }
