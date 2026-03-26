@@ -21,21 +21,18 @@ h1 {
   font-weight: 700;
   margin: 0;
   padding: 40px;
-  max-width: 800px; /* Förhindrar att texten blir för bred på stora skärmar */
+  max-width: 800px;
 }
 
-/* --- LOGGAN / STICKERN --- */
+/* --- LOGGAN / STICKERN (Dator) --- */
 .sticker {
   position: fixed;
   top: 40px;
   right: 40px;
-  /* Ändrad till 320px (80% av tidigare 400px) */
-  width: 320px; 
+  width: 320px; /* 80% av originalet */
   height: auto;
   z-index: 1000;
-  pointer-events: none; /* Gör att man kan klicka på text under bilden */
-  
-  /* En mjuk övergång om man ändrar storlek på fönstret */
+  pointer-events: none;
   transition: width 0.3s ease;
 }
 
@@ -57,14 +54,16 @@ h1 {
 }
 
 /* 2. MOBIL I LIGGANDE LÄGE (Landscape) */
-@media (max-width: 900px) and (orientation: landscape) {
+@media (max-width: 932px) and (orientation: landscape) {
   .sticker {
-    width: 100px; 
+    /* Ökad med 20% (från 100px till 120px) */
+    width: 120px; 
     top: 15px;
     right: 15px;
   }
   h1 {
     font-size: 1rem;
-    padding: 20px 100px; /* Mer luft på sidorna så texten inte hamnar under loggan */
+    /* Justerad padding för att ge plats åt 120px sticker */
+    padding: 20px 130px; 
   }
 }
